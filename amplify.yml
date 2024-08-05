@@ -1,0 +1,18 @@
+version: 1
+applications:
+  - frontend:
+      phases:
+        preBuild:
+          commands:
+            - npm install -g flutter
+            - flutter pub get
+        build:
+          commands:
+            - flutter build web
+      artifacts:
+        baseDirectory: build/web
+        files:
+          - '**/*'
+      cache:
+        paths:
+          - flutter/.pub-cache
